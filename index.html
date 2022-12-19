@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>iPortfolio Bootstrap Template - Index</title>
+  <title>Portfolio-PRANAV K</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -546,39 +546,41 @@
 
           </div>
 
-          <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
-            <form id="submit-form" action="">
-              <div class="row">
-                <div class="form-group col-md-6">
-                  <label for="name">Your Name</label>
-                  <input type="text" name="name" class="form-control" id="name" required>
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
+            <form action="https://script.google.com/macros/s/AKfycbzFTnaHi5bbuRhOmRpcJuPDjnvRKjCTceUKOncWesXF94YjC3e0YH7em11ltl7FXoTwRA/exec" onsubmit="validate()" class=" row g-lg-3 gy-3" id="submit-form" method="post">
+                <div class=" form-group col-md-6">
+                    <input id="name" type="name" name="name" class="form-control"
+                        placeholder="Enter your name" onblur="namecheck()">
+                    <label id="nmlabel" for="name" style="display: none; color:red;">This field is
+                        requierd</label>
+                    <label id="nmlabel-01" for="name" style="display: none; color:red;">Name does't start
+                        with number</label>
+                    <label id="nmlabel-02" for="name" style="display: none; color:red;">Name does't containe
+                        special charecters</label>
+
                 </div>
                 <div class="form-group col-md-6">
-                  <label for="name">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email" required>
+                    <input type="email" name="email" class="form-control" placeholder="Enter your email"
+                        id="email" required>
+                   
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="name">Subject</label>
-                <input type="text" class="form-control" name="subject" id="subject" required>
-              </div>
-              <div class="form-group">
-                <label for="name">Message</label>
-                <textarea class="form-control" name="message" rows="10" required></textarea>
-              </div>
-              <div class="my-3">
-                <div class="loading">Loading</div>
-                <div class="error-message"></div>
-                <div class="sent-message">Your message has been sent. Thank you!</div>
-              </div>
-              <div class="text-center"><button type="submit">Send Message</button></div>
+                
+                <div class="form-group col-12">
+                    <textarea name="msg" rows="4" class="form-control" placeholder="Enter your message"
+                         id="msg" required></textarea>
+                  
+                </div>
+                <div class="form-group col-12 d-grid">
+                    <button type="submit" class="btn btn-brand">Contact me</button>
+                </div>
             </form>
-          </div>
+        </div>
+    </div>
           <script>
             $("#submit-form").submit((e)=>{
                 e.preventDefault()
                 $.ajax({
-                    url:"https://script.google.com/macros/s/AKfycbwYTwayBPiqFDRllOK8m0uv83X7xaXDsJn6hb3RJwaw0vPVWSFXb1e9byFYDYkTrY1-AQ/exec",
+                    url:"https://script.google.com/macros/s/AKfycbzFTnaHi5bbuRhOmRpcJuPDjnvRKjCTceUKOncWesXF94YjC3e0YH7em11ltl7FXoTwRA/exec",
                     data:$("#submit-form").serialize(),
                     method:"post",
                     success:function (response){
