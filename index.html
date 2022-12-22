@@ -546,39 +546,43 @@
 
           </div>
 
-          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="300">
-            <form action="https://script.google.com/macros/s/AKfycbzFTnaHi5bbuRhOmRpcJuPDjnvRKjCTceUKOncWesXF94YjC3e0YH7em11ltl7FXoTwRA/exec" onsubmit="validate()" class=" row g-lg-3 gy-3" id="submit-form" method="post">
-                <div class=" form-group col-md-6">
-                    <input id="name" type="name" name="name" class="form-control"
-                        placeholder="Enter your name" onblur="namecheck()">
-                    <label id="nmlabel" for="name" style="display: none; color:red;">This field is
-                        requierd</label>
-                    <label id="nmlabel-01" for="name" style="display: none; color:red;">Name does't start
-                        with number</label>
-                    <label id="nmlabel-02" for="name" style="display: none; color:red;">Name does't containe
-                        special charecters</label>
-
+          <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="300">
+            <form  name="google-sheet"  id="submit-form" role="form"  >
+              <div class="row">
+                <div class="col-md-6 form-group">
+                  <label for="name">Your Name</label>
+                  <input type="text" name="name" class="form-control" id="contact-name" onblur="validateName()" placeholder="Your Name" >
+                  <span id="name-error"></span>
                 </div>
-                <div class="form-group col-md-6">
-                    <input type="email" name="email" class="form-control" placeholder="Enter your email"
-                        id="email" required>
-                   
+                <div class="col-md-6 form-group mt-3 mt-md-0">
+                  <label for="name">Your Email</label>
+                  <input type="email" class="form-control" name="email" id="contact-email" onblur="validateEmail()" placeholder="Your Email" >
+                  <span id="email-error"></span>
                 </div>
-                
-                <div class="form-group col-12">
-                    <textarea name="msg" rows="4" class="form-control" placeholder="Enter your message"
-                         id="msg" required></textarea>
-                  
-                </div>
-                <div class="form-group col-12 d-grid">
-                    <button type="submit" class="btn btn-brand">Contact me</button>
-                </div>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Mobile Number</label>
+                <input type="text" class="form-control" name="subject" id="contact-subject" onblur="validateSubject()" placeholder="Mobile Number" >
+                <span id="subject-error"></span>
+              </div>
+              <div class="form-group mt-3">
+                <label for="name">Message</label>
+                <textarea class="form-control" name="message" id="contact-message" rows="5" placeholder="Message" onblur="validateMessage()" ></textarea>
+                <span id="message-error"></span>
+              </div>
+              <br>
+              
+              <div class="text-center "><button style="border-radius: 20rem;" onsubmit="contactSubmit()" type="submit" id="submit" class="btn btn-success">SUBMIT FORM</button>
+              <br><br>
+              <span id="submit-error"></span></div>
             </form>
         </div>
     </div>
-          <script>
+           <script>
             $("#submit-form").submit((e)=>{
                 e.preventDefault()
+                document.getElementById("submit").innerHTML = "Please wait Processing...";
+                if(validateName()&&validateEmail()&&validateSubject()&& validateSubject()&& validateMessage()){
                 $.ajax({
                     url:"https://script.google.com/macros/s/AKfycbzFTnaHi5bbuRhOmRpcJuPDjnvRKjCTceUKOncWesXF94YjC3e0YH7em11ltl7FXoTwRA/exec",
                     data:$("#submit-form").serialize(),
@@ -593,7 +597,13 @@
         
                     }
                 })
-            })
+            }else{
+              document.getElementById("submit").innerHTML = "SUBMIT FORM";
+
+            }
+          })
+          
+  
         </script>
         <script src="https://code.jquery.com/jquery-3.6.2.js" integrity="sha256-pkn2CUZmheSeyssYw3vMp1+xyub4m+e+QK4sQskvuo4=" crossorigin="anonymous"></script>
 
